@@ -38,6 +38,16 @@ function includeHTML() {
     }
 };
 
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function () {
+    var currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+        document.getElementById("mainNavbar").style.top = "0";
+    } else {
+        document.getElementById("mainNavbar").style.top = "-80px";
+    }
+    prevScrollpos = currentScrollPos;
+}
 // Set scrolled class for sidebar and footer
 $(document).scroll(function () {
     var $sidebar = $("#mainSidebar");
